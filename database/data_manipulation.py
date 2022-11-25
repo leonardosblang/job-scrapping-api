@@ -35,13 +35,37 @@ def get_jobs_by_technology(technology_type):
 
 def get_jobs_by_type(job_type):
     job_list = read_json_file()
+
+    for job in job_list:
+        job['average'] = 0
     jobs_by_type = []
+
     for job in job_list:
         if job_type == job['type']:
             jobs_by_type.append(job)
+
+    for job in jobs_by_type:
+        del job['type']
+        del job['companies']
+        del job['_id']
+        job['date'] = job['date'][:10]
+
+    for job in jobs_by_type:
+        for job2 in jobs_by_type:
+            if job['technology'] == job2['technology'] and job != job2:
+                job['vacancies'] += job2['vacancies']
+                job['average'] = (job['average'] + job2['average']) / 2
+                jobs_by_type.remove(job2)
     return jobs_by_type
 
 
 def return_all_jobs():
     job_list = read_json_file()
+
+    for job in job_list:
+        del job['type']
+        del job['companies']
+        del job['_id']
+        job['date'] = job['date'][:10]
+
     return job_list
