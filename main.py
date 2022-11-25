@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from database.data_manipulation import get_jobs_by_technology, get_jobs_by_type, return_all_jobs
@@ -38,3 +39,6 @@ def get_info():
     if response:
         return response
     raise HTTPException(404, f"0")
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=os.getenv("PORT", default=5000), log_level="info")
