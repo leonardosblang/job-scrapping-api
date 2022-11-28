@@ -59,14 +59,11 @@ def get_jobs_by_type(job_type):
 
         job['vacancies'] = job['vacancies'] / count
 
-
-
     for job5 in jobs_json:
 
         for job6 in jobs_json:
 
             if job5['technology'] == job6['technology'] and job5['_id'] != job6['_id']:
-
                 jobs_json.remove(job6)
 
     for job7 in jobs_json:
@@ -86,5 +83,9 @@ def return_all_jobs():
         del job['companies']
         del job['_id']
         job['date'] = job['date'][:10]
+        job['vagas'] = []
+        job['vagas'].append({'vagas': job['vacancies'], 'data': job['date']})
+        del job['vacancies']
+        del job['date']
 
     return job_list
