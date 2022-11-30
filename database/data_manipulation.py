@@ -39,11 +39,13 @@ def get_jobs_by_type(job_type):
         except KeyError:
             pass
 
+
+
     for job3 in jobs_json:
         del job3['type']
         del job3['companies']
         del job3['date']
-    print(jobs_json)
+
 
     for job in jobs_json:
         count = 0
@@ -72,6 +74,20 @@ def get_jobs_by_type(job_type):
             if job7['technology'] == job8['technology'] and job7['vacancies'] != job8['vacancies']:
                 jobs_json.remove(job8)
 
+    for job in jobs_json:
+        try:
+            job['x'] = job.pop('technology')
+        except KeyError:
+            pass
+
+    for job in jobs_json:
+        try:
+            job['y'] = job.pop('vacancies')
+        except KeyError:
+            pass
+
+
+
     return jobs_json
 
 
@@ -79,12 +95,26 @@ def return_all_jobs():
     job_list = read_json_file()
 
     for job in job_list:
+        try:
+            job['technology'] = job.pop('tecnology')
+        except KeyError:
+            pass
+
+    for job in job_list:
+        try:
+            job['name'] = job.pop('technology')
+        except KeyError:
+            pass
+
+    for job in job_list:
         del job['type']
         del job['companies']
         del job['_id']
         job['date'] = job['date'][:10]
+
+        job['date'] = job['date'][-2:]
         job['vagas'] = []
-        job['vagas'].append({'vagas': job['vacancies'], 'data': job['date']})
+        job['vagas'].append({'x': job['vacancies'], 'y': job['date']})
         del job['vacancies']
         del job['date']
 
