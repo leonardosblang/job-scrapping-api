@@ -1,0 +1,12 @@
+# Other Branches
+database/
+main.py
+Procfile
+requirements.txt
+test_main.http
+
+# Python
+__pycache__/
+
+# Virtual Environment
+env/
