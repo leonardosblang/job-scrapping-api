@@ -1,4 +1,5 @@
 # Other Branches
+ignore/
 database/
 main.py
 Procfile
