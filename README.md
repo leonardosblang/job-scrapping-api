@@ -6,7 +6,7 @@
 
 ## 🚀 Descrição 🚀
 
-O projeto JobScrapping é busca coletar as informações de vagas de emprego em diversos sites e enviar essas informações para um banco de dados (MongoDB). Este banco será consultado por uma API em Python que disponibilizará essas informações em um formato JSON para o app (PWA - _Progressive Web Apps_) em React.
+O projeto **JobScrapping** coleta informações, em diversos _sites_, a respeito de vagas de emprego na área de desenvolvimento de _software_, e depois envia essas informações para um banco de dados MongoDB. Este banco é consultado por uma API em Python, que então disponibiliza essas informações em um formato JSON para o app (PWA - _Progressive Web Apps_) em React.
 
 ## API e Testes Unitários da API JobScrapping
 
