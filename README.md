@@ -21,9 +21,6 @@ Rodar API
 ```bash
 uvicorn main:app
 ```
-<p align="center">
-  <img height="256" src="assets_images/image.PNG" />
-</p>
 
 Rodar Testes
 
