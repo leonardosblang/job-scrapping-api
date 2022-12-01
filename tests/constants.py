@@ -35,6 +35,7 @@ SAMPLE_JOBS = [
 
 SAMPLE_JOBS_BY_TYPE = [
     {
+<<<<<<< HEAD:tests/constants.py
         "_id": "6364ee6ece535cccc45406e9",
         "date": "2022:11:04:10:50:22.177000",
         "vacancies": 442,
@@ -49,6 +50,14 @@ SAMPLE_JOBS_BY_TYPE = [
         "companies": 236,
         "type": "backend",
         "technology": "Python"
+=======
+        "_id": "6364ee60ce535cccc45406e8",
+        "date": "2022:11:04:10:50:08.474000",
+        "vacancies": 124,
+        "companies": 64,
+        "type": "mobile",
+        "technology": "React Native"
+>>>>>>> 0bb50c0d78ca7de0a89e31effcbc3247ad51b341:tests/jobs_json.py
     }
 ]
 
