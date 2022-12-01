@@ -1,10 +1,5 @@
-# Other Branches
-ignore/
-database/
-main.py
-Procfile
-requirements.txt
-test_main.http
+# Miscellaneous
+docs/jobs.json
 
 # Python
 __pycache__/
