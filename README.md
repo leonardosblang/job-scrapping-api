@@ -20,6 +20,7 @@ O principal pré-requisito é o [Python](https://www.python.org/).
 pip install fastapi
 pip install uvicorn[standard]
 pip install pymongo
+pip install pandas
 ```
 
 ### Rodando a API
