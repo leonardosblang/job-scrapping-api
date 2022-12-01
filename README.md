@@ -1,6 +1,17 @@
-# JobScrapping API
+
 
 [![JobScrapping API](https://github.com/leonardosblang/job-scrapping-api/actions/workflows/python-app.yml/badge.svg)](https://github.com/leonardosblang/job-scrapping-api/actions/workflows/python-app.yml)
+
+<img src="https://user-images.githubusercontent.com/61352086/194158541-07e551e3-8fd1-4289-b16f-eebf5afb3fad.png" alt="made by lang" 
+style="width: 100px; height: 100px;"/>
+
+<h1 align="center">JobScrapping</h1>
+
+<h2 align="left">🚀Descrição🚀</h2>
+
+## :book: Descrição do Projeto 
+
+<p>O projeto Job Scrapping é um projeto que coleta as informações de vagas de emprego em diversos sites e disponibiliza essas informações em um banco de dados MongoDB. Esse que será consultado por uma API Python que disponibilizará essas informações em um formato JSON para o App (PWA - Progressive Web Apps) em React.</p>
 
 # API e testes unitários da API Job Scrapping
 
