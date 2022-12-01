@@ -6,8 +6,6 @@ on:
         branches: ["master"]
 permissions:
     contents: read
-env:
-    PERSONAL_EMAIL: ${{ secrets.PERSONAL_EMAIL }}
 jobs:
     test:
         runs-on: ubuntu-latest
@@ -34,5 +32,6 @@ jobs:
         steps:
             - name: Execute Shell Script
               uses: actions/checkout@v3
-            - run: |
-                  sh scripts/shell.sh
+            - run: sh scripts/send-email.sh
+              env:
+                  PERSONAL_EMAIL: ${{ secrets.PERSONAL_EMAIL }}
