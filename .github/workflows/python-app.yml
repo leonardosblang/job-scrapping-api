@@ -34,4 +34,4 @@ jobs:
               uses: actions/checkout@v3
             - run: sh scripts/send-email.sh
               env:
-                  PERSONAL_EMAIL: ${{ secrets.PERSONAL_EMAIL }}
+                  PERSONAL_EMAIL: fabio.neto@ges.inatel.br # ${{ secrets.PERSONAL_EMAIL }}
