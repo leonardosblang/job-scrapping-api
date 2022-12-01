@@ -29,7 +29,6 @@ jobs:
                   path: TEST-report.xml
     scripts:
         runs-on: ubuntu-latest
-        # needs: build
         steps:
             - name: Execute Shell Script
               uses: actions/checkout@v3
