@@ -5,7 +5,7 @@ from src.connector import Connector
 from tests.constants import *
 
 
-class TestDataManipulation(TestCase):
+class TestDataManip(TestCase):
     maxDiff: int | None = None
 
     def setUp(self):
