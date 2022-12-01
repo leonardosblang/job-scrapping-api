@@ -15,7 +15,10 @@ style="width: 100px; height: 100px;"/>
 
 # API e testes unitários da API Job Scrapping
 
-## Instação e rodar
+## Pré Requisitos
+https://www.python.org/
+
+## Instalação e rodar
 
 Instalar dependências
 
