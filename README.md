@@ -26,3 +26,17 @@ Rodar Testes
 python -m unittest
 ```
 
+## Autores do Projeto:
+George Luis Costa Ribeiro
+
+Bruno Almeida Vasconcelos
+
+Leonardo S.B. Lang
+
+Fabio de Moura Camargo Neto
+
+
+[Git Hub] (https://github.com/George-Luis-Costa?tab=repositories)
+[Git Hub] (http://github.com/brunovollin)
+[Git Hub] (https://github.com/leonardosblang)
+[Git Hub] (https://github.com/bio353)
