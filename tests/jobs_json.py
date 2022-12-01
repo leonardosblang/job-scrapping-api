@@ -30,7 +30,7 @@ SAMPLE_JOBS = [
 
 SAMPLE_JOBS_BY_TYPE = [
     {
-        "_id": ObjectId("6364ee60ce535cccc45406e8"),
+        "_id": "6364ee60ce535cccc45406e8",
         "date": "2022:11:04:10:50:08.474000",
         "vacancies": 124,
         "companies": 64,
