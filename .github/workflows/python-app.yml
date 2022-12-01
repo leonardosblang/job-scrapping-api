@@ -1,11 +1,13 @@
-name: Calculator App
+name: JobScrapping API
 on:
     push:
-        branches: ["tests"]
+        branches: ["master"]
     pull_request:
-        branches: ["tests"]
+        branches: ["master"]
 permissions:
     contents: read
+env:
+    PERSONAL_EMAIL: ${{ secrets.PERSONAL_EMAIL }}
 jobs:
     test:
         runs-on: ubuntu-latest
@@ -30,9 +32,7 @@ jobs:
     scripts:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
             - name: Execute Shell Script
-              run: |
+              uses: actions/checkout@v3
+            - run: |
                   sh scripts/shell.sh
-              env:
-                  PERSONAL_EMAIL: ${{ secrets.PERSONAL_EMAIL }}
