@@ -1,27 +1,20 @@
-
+# JobScrapping
 
 [![JobScrapping API](https://github.com/leonardosblang/job-scrapping-api/actions/workflows/python-app.yml/badge.svg)](https://github.com/leonardosblang/job-scrapping-api/actions/workflows/python-app.yml)
 
-<img src="https://user-images.githubusercontent.com/61352086/194158541-07e551e3-8fd1-4289-b16f-eebf5afb3fad.png" alt="made by lang" 
-style="width: 100px; height: 100px;"/>
+<img src="https://user-images.githubusercontent.com/61352086/194158541-07e551e3-8fd1-4289-b16f-eebf5afb3fad.png" alt="made by lang" style="width: 100px; height: 100px;"/>
 
-<h1 align="center">JobScrapping</h1>
+## 🚀 Descrição 🚀
 
-<h2 align="left">🚀Descrição🚀</h2>
+O projeto JobScrapping é busca coletar as informações de vagas de emprego em diversos sites e enviar essas informações para um banco de dados (MongoDB). Este banco será consultado por uma API em Python que disponibilizará essas informações em um formato JSON para o app (PWA - _Progressive Web Apps_) em React.
 
-## :book: Descrição do Projeto 
+## API e Testes Unitários da API JobScrapping
 
-<p>O projeto Job Scrapping é um projeto que coleta as informações de vagas de emprego em diversos sites e disponibiliza essas informações em um banco de dados MongoDB. Esse que será consultado por uma API Python que disponibilizará essas informações em um formato JSON para o App (PWA - Progressive Web Apps) em React.</p>
+### Pré-Requisitos
 
-# API e testes unitários da API Job Scrapping
+O principal pré-requisito é o [Python](https://www.python.org/).
 
-## Pré Requisitos
-### Python
-https://www.python.org/
-
-## Instalação e rodar
-
-Instalar dependências
+### Instalando as Dependências
 
 ```bash
 pip install fastapi
@@ -29,36 +22,21 @@ pip install uvicorn[standard]
 pip install pymongo
 ```
 
-Rodar API
+### Rodando a API
 
 ```bash
 uvicorn main:app
 ```
 
-Rodar Testes
+### Executando os Testes
 
 ```bash
 python -m unittest
 ```
 
-## Autores do Projeto:
-<p>George Luis Costa Ribeiro</p>
-<p>Bruno Almeida Vasconcelos</p>
-<p>Leonardo S.B. Lang<p>
-<p>Fabio de Moura Camargo Neto</p>
+## Autores do Projeto
 
-<br>
-
-[Git Hub] (https://github.com/George-Luis-Costa?tab=repositories)
-<br>
-[Git Hub] (http://github.com/brunovollin)
-<br>
-[Git Hub] (https://github.com/leonardosblang)
-<br>
-[Git Hub] (https://github.com/bio353)
-
-<hr>
-
-
-
-
+- [George Luis Costa Ribeiro](https://github.com/George-Luis-Costa)
+- [Bruno Almeida Vasconcelos](http://github.com/brunovollin)
+- [Leonardo S. B. Lang](https://github.com/leonardosblang)
+- [Fabio Neto](https://github.com/bio353)
