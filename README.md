@@ -2,9 +2,7 @@
 
 [![JobScrapping API](https://github.com/leonardosblang/job-scrapping-api/actions/workflows/python-app.yml/badge.svg)](https://github.com/leonardosblang/job-scrapping-api/actions/workflows/python-app.yml)
 
-# Python API De Job Scrapping
-
-API e testes unitários da API Job Scrapping
+# API e testes unitários da API Job Scrapping
 
 ## Instação e rodar
 
