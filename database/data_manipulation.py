@@ -1,5 +1,5 @@
 import json
-
+import pandas as pd
 import pymongo
 
 
@@ -18,104 +18,59 @@ def update_json_file():
         json.dump(jobs_json, outfile, default=str)
 
 
+
 def read_json_file():
     update_json_file()
     with open('jobs2.json') as file:
         file_data = json.load(file)
+
+    for job in file_data:
+        try:
+            job['technology'] = job.pop('tecnology')
+
+        except KeyError:
+            pass
+        try:
+            job['name'] = job.pop('technology')
+        except KeyError:
+            pass
     return file_data
 
 
 def get_jobs_by_type(job_type):
-    client = pymongo.MongoClient("mongodb+srv://root:root@cluster0.bqedr.mongodb.net/?retryWrites=true&w=majority")
-    db = client.web
-    jobs = db.vagas
+    job_list = read_json_file()
 
-    jobs_json = jobs.find({"type": job_type})
-    jobs_json = (list(jobs_json))
+    df = pd.DataFrame(job_list)
+    df = df[df['type'] == job_type]
+    df = df.drop(['type', 'companies', '_id', 'date'], axis=1)
+    df = df.rename(columns={'vacancies': 'y', 'name': 'x'})
 
-    for job in jobs_json:
-        try:
-            job['technology'] = job.pop('tecnology')
-        except KeyError:
-            pass
+    df = df.groupby('x').apply(lambda x: x['y'].sum() / x['y'].count()).reset_index(name='y')
+    df = df.to_json(orient='records')
+    df = json.loads(df)
 
-
-
-    for job3 in jobs_json:
-        del job3['type']
-        del job3['companies']
-        del job3['date']
-
-
-    for job in jobs_json:
-        count = 0
-        for job2 in jobs_json:
-
-            if job['technology'] == job2['technology']:
-                job['vacancies'] += job2['vacancies']
-
-                count = count + 1
-
-        if count == 0:
-            count = 1
-
-        job['vacancies'] = job['vacancies'] / count
-
-    for job5 in jobs_json:
-
-        for job6 in jobs_json:
-
-            if job5['technology'] == job6['technology'] and job5['_id'] != job6['_id']:
-                jobs_json.remove(job6)
-
-    for job7 in jobs_json:
-        del job7['_id']
-        for job8 in jobs_json:
-            if job7['technology'] == job8['technology'] and job7['vacancies'] != job8['vacancies']:
-                jobs_json.remove(job8)
-
-    for job in jobs_json:
-        try:
-            job['x'] = job.pop('technology')
-        except KeyError:
-            pass
-
-    for job in jobs_json:
-        try:
-            job['y'] = job.pop('vacancies')
-        except KeyError:
-            pass
-
-
-
-    return jobs_json
+    return df
 
 
 def return_all_jobs():
     job_list = read_json_file()
 
-    for job in job_list:
-        try:
-            job['technology'] = job.pop('tecnology')
-        except KeyError:
-            pass
+    df = pd.DataFrame(job_list)
 
-    for job in job_list:
-        try:
-            job['name'] = job.pop('technology')
-        except KeyError:
-            pass
+    df = df.drop(['type', 'companies', '_id'], axis=1)
 
-    for job in job_list:
-        del job['type']
-        del job['companies']
-        del job['_id']
-        job['date'] = job['date'][:10]
+    df['date'] = df['date'].str[8:10]
 
-        job['date'] = job['date'][-2:]
-        job['vagas'] = []
-        job['vagas'].append({'x': job['vacancies'], 'y': job['date']})
-        del job['vacancies']
-        del job['date']
+    df = df.rename(columns={'vacancies': 'y', 'date': 'x'})
 
-    return job_list
+    df['x'] = df['x'].astype(int)
+
+    df = df.drop_duplicates(subset=['x', 'name'], keep='first')
+
+    df = df.groupby('name').apply(lambda x: x[['x', 'y']].to_dict(orient='records')).reset_index(name='vagas')
+
+    df = df.to_json(orient='records')
+    df = json.loads(df)
+
+    return df
+
